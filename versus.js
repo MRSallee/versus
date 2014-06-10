@@ -1,9 +1,8 @@
 
 // Set poll by URL parameter
-function getUrlParam () {
-    var urlParam = window.location.search.substring(1);
-
-    var dataScript = document.createElement("script");
+function getUrlParam() {
+    var urlParam = window.location.search.substring(1),
+        dataScript = document.createElement("script");
     dataScript.type = "text/javascript";
     dataScript.src = "/data/" + urlParam + ".js";
     $("head").append(dataScript);
@@ -18,10 +17,10 @@ var categoryId = 'category1',
     lastCategoryId = 'category' + lastCategoryNum,
     count = metadata.countTimer,
     resetCount = function () {
-    count = metadata.countTimer;
-    $(".voting-countdown").text("");
-    clearInterval(timer);
-};
+        count = metadata.countTimer;
+        $(".voting-countdown").text("");
+        clearInterval(timer);
+    };
 
 // Set categories
 var setNext = function () {
@@ -56,7 +55,6 @@ var counter = function () {
     }
 };
 
-// Run on start
 $(window).load(function () {
     
     // Function, Play manual
@@ -68,8 +66,6 @@ $(window).load(function () {
         $(".vs-container").addClass("wait");
         $(".voting-message").html(message.countdown);
     };
-    
-    // Click, Play manual
     $(".vs-video").on("click", ".video-thumb", function () {
         play();
     });
@@ -86,8 +82,6 @@ $(window).load(function () {
         $(".header-category").text(categories[categoryId].name);
         $(".vs-container").removeClass().addClass("vs-container wait").addClass(categoryId);
     };
-    
-    // Click, Category change
     $(".vs-shortcuts").on("click", ".shortcut", function () {
         categoryId = $(this).data("id");
         categoryChange();
@@ -113,33 +107,31 @@ $(window).load(function () {
         startTimer();
     });
     
-    // Setup generated markup
+    // Set up markup
     // Title, category
-    $(".hamburger .header-title").text(metadata.title);
-    $(".hamburger .header-category").text(categories.category1.name);
+    $(".header-title").text(metadata.title);
+    $(".header-category").text(categories.category1.name);
     
     // Set up shortcuts
     var iniCategoryCount = metadata.categoryCount - 1;
-    
     while (iniCategoryCount > 0) {
         var iniCategoryId = "category" + iniCategoryCount,
             markupShortcut = '<div class="shortcut" data-id="' + iniCategoryId + '">' + categories[iniCategoryId].name + '</div>';
-        $(".hamburger .vs-shortcuts").prepend(markupShortcut);
+        $(".vs-shortcuts").prepend(markupShortcut);
         iniCategoryCount = iniCategoryCount - 1;
     }
     
     // Set up content
-    $(".hamburger .video-thumb").css("background-image", "url('" + categories.category1.thumbnail + "')");
-    $(".hamburger .voting-message").text(message.start);
+    $(".video-thumb").css("background-image", "url('" + categories.category1.thumbnail + "')");
+    $(".voting-message").text(message.start);
     
     // Set up options
     var iniOptionsCount = metadata.optionsCount;
-    
     while (iniOptionsCount > 0) {
         var iniVoteId = "vote" + iniOptionsCount,
             iniOptionId = "option" + iniOptionsCount,
             markupOption = '<div class="button" data-id="' + iniVoteId + '">' + metadata[iniOptionId] + '</div>';
-        $(".hamburger .voting-buttons").prepend(markupOption);
+        $(".voting-buttons").prepend(markupOption);
         iniOptionsCount = iniOptionsCount - 1;
     }
 });
