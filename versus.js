@@ -5,7 +5,7 @@ function getUrlParam () {
 
     var dataScript = document.createElement("script");
     dataScript.type = "text/javascript";
-    dataScript.src = "data-" + urlParam + ".js";
+    dataScript.src = "/data/" + urlParam + ".js";
     $("head").append(dataScript);
 }
 getUrlParam();
