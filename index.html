@@ -1,35 +1,482 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="versus.css"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript" src="versus.js"></script>
-        <script type="text/javascript" src="http://use.typekit.net/gcn8akg.js"></script>
         <script type="text/javascript">
-            try{Typekit.load();}catch(e){}
+
+// Countdown timer
+
+            function startCountdown() {    
+                counter = setInterval(timer, 1000);
+                var count = 46;
+                function openPolls() {
+                    $(".versus-container").addClass("stage-voting").removeClass("stage-countdown");
+                };
+                
+                function timer() {
+                    count = count - 1;
+                    var minutes = Math.floor(count / 60);
+                    var seconds = count - minutes * 60;
+                    if (count <= -1) {
+                        openPolls();
+                        console.log("done");
+                        clearInterval(counter);
+                        return;
+                    };
+                    if (minutes <= 9 && seconds >= 10) {
+                        $(".versus-timestamp").text('0' + minutes + ':' + seconds);
+                    }
+                    else if (minutes <= 9 && seconds <= 9) {
+                        $(".versus-timestamp").text('0' + minutes + ':0' + seconds);
+                    }
+                };
+            };
+
+            function startCountdownShort() {    
+                counter = setInterval(timer, 1000);
+                var count = 21;
+                function openPolls() {
+                    $(".versus-container").addClass("stage-voting").removeClass("stage-countdown");
+                };
+                
+                function timer() {
+                    count = count - 1;
+                    var minutes = Math.floor(count / 60);
+                    var seconds = count - minutes * 60;
+                    if (count <= -1) {
+                        openPolls();
+                        console.log("done");
+                        clearInterval(counter);
+                        return;
+                    };
+                    if (minutes <= 9 && seconds >= 10) {
+                        $(".versus-timestamp").text('0' + minutes + ':' + seconds);
+                    }
+                    else if (minutes <= 9 && seconds <= 9) {
+                        $(".versus-timestamp").text('0' + minutes + ':0' + seconds);
+                    }
+                };
+            };
+
+            $(document).ready(function() {
+                
+// Load video without autoplay
+
+                var video1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2013/12/20/xbox-one-vs-ps4-you-decide-the-controller-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2013/12/16/xbox-one-vs-ps4-you-decide-the-hardware-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video3 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-games-library-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video4 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-software-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video5 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-online-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video6 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                
+                $(document).on("click", ".sec1Vid", function() {
+                    startCountdown();
+                    $(".video-placeholder-wrapper").replaceWith(video1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+                
+                $(document).on("click", ".sec2Vid", function() {
+                    startCountdown();
+                    $(".video-placeholder-wrapper").replaceWith(video2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+                
+                $(document).on("click", ".sec3Vid", function() {
+                    startCountdown();
+                    $(".video-placeholder-wrapper").replaceWith(video3);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+                
+                $(document).on("click", ".sec4Vid", function() {
+                    startCountdown();
+                    $(".video-placeholder-wrapper").replaceWith(video4);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+                
+                $(document).on("click", ".sec5Vid", function() {
+                    startCountdown();
+                    $(".video-placeholder-wrapper").replaceWith(video5);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+                
+                $(document).on("click", ".sec6Vid", function() {
+                    startCountdownShort();
+                    $(".video-placeholder-wrapper").replaceWith(video6);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-waiting");
+                });
+
+// Poll 1, Load video 2
+
+                var video2opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2013/12/20/xbox-one-vs-ps4-you-decide-the-hardware-ps4-controller-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video2opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2013/12/20/xbox-one-vs-ps4-you-decide-the-hardware-xbox-one-controller-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote1-opt1").click(function() {
+                    $(".vote1").addClass("hide").removeClass("unhide");
+                    $(".vote2").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec2").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video2opt1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Hardware");
+                });
+                                      
+                $(".vote1-opt2").click(function() {
+                    $(".vote1").addClass("hide").removeClass("unhide");
+                    $(".vote2").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec2").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video2opt2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Hardware");
+                });
+
+// Poll 2, Load video 3
+
+                var video3opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-games-library-ps4-hardware-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video3opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-games-library-xbox-one-hardware-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote2-opt1").click(function() {
+                    $(".vote2").addClass("hide").removeClass("unhide");
+                    $(".vote3").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec3").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video3opt1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Games");
+                });
+                                      
+                $(".vote2-opt2").click(function() {
+                    $(".vote2").addClass("hide").removeClass("unhide");
+                    $(".vote3").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec3").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video3opt2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Games");
+                });
+
+// Poll 3, Load video 4
+
+                var video4opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-software-ps4-games-library-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video4opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-software-xbox-one-games-library-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote3-opt1").click(function() {
+                    $(".vote3").addClass("hide").removeClass("unhide");
+                    $(".vote4").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec4").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video4opt1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Software");
+                });
+                                      
+                $(".vote3-opt2").click(function() {
+                    $(".vote3").addClass("hide").removeClass("unhide");
+                    $(".vote4").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec4").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video4opt2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Software");
+                });
+
+// Poll 4, Load video 5
+
+                var video5opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-online-ps4-software-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video5opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-online-xbox-one-software-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote4-opt1").click(function() {
+                    $(".vote4").addClass("hide").removeClass("unhide");
+                    $(".vote5").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec5").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video5opt1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Online");
+                });
+                                      
+                $(".vote4-opt2").click(function() {
+                    $(".vote4").addClass("hide").removeClass("unhide");
+                    $(".vote5").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec5").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdown();
+                    $("iframe").replaceWith(video5opt2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("The Online");
+                });
+
+// Poll 5, Load video 6
+
+                var video6opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-ps4-online-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video6opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-xbox-one-online-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote5-opt1").click(function() {
+                    $(".vote5").addClass("hide").removeClass("unhide");
+                    $(".vote6").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec6").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdownShort();
+                    $("iframe").replaceWith(video6opt1);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("Overall");
+                });
+                                      
+                $(".vote5-opt2").click(function() {
+                    $(".vote5").addClass("hide").removeClass("unhide");
+                    $(".vote6").removeClass("hide").addClass("unhide");
+                    $(".selsec").removeClass("selsec");
+                    $(".sec6").addClass("selsec");
+                    $(".countdown-copy").text("You must watch this video to verify your vote. Next poll opens in...");
+                    
+                    startCountdownShort();
+                    $("iframe").replaceWith(video6opt2);
+                    $(".versus-container").addClass("stage-countdown").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("Overall");
+                });
+
+// Poll 6, Load video 7
+
+                var video7opt1 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-finale-ps4-overall-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+                var video7opt2 = '<iframe src="http://widgets.ign.com/video/embed/content.html?url=http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-the-finale-xbox-one-overall-vote-ign-versus&autoplay=true" width="608" height="342" scrolling="no" frameborder="0" allowfullscreen></iframe>';
+
+                $(".vote6-opt1").click(function() {
+                    $(".vote6").addClass("hide").removeClass("unhide");
+                    $(".vote7").removeClass("hide").addClass("unhide");
+                    
+                    $("iframe").replaceWith(video7opt1);
+                    $(".versus-container").addClass("stage-thankyou").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("Polling Complete");
+                });
+                                      
+                $(".vote6-opt2").click(function() {
+                    $(".vote6").addClass("hide").removeClass("unhide");
+                    $(".vote7").removeClass("hide").addClass("unhide");
+                    
+                    $("iframe").replaceWith(video7opt2);
+                    $(".versus-container").addClass("stage-thankyou").removeClass("stage-voting");
+                    $(".versus-title > p > b").text("Polling Complete");
+                });
+
+// Tab clicks
+                var sec1Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec1Vid"><img class="video-placeholder" src="http://assets2.ignimgs.com/2013/12/19/versuscontroller1280jpg-8860f2_610w.jpg"/></div></div>';
+                var sec2Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec2Vid"><img class="video-placeholder" src="http://assets1.ignimgs.com/2013/12/19/versushardware1280jpg-8860f6_610w.jpg"/></div></div>';
+                var sec3Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec3Vid"><img class="video-placeholder" src="http://assets2.ignimgs.com/2013/12/19/versusgames1280jpg-e974ab_610w.jpg"/></div></div>';
+                var sec4Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec4Vid"><img class="video-placeholder" src="http://assets2.ignimgs.com/2013/12/19/versussoftware1280jpg-e974ae_610w.jpg"/></div></div>';
+                var sec5Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec5Vid"><img class="video-placeholder" src="http://assets1.ignimgs.com/2013/12/19/versusonline1280jpg-8860f3_610w.jpg"/></div></div>';
+                var sec6Vid = '<div class="versus-video"><div class="video-placeholder-wrapper sec6Vid"><img class="video-placeholder" src="http://assets2.ignimgs.com/2013/12/19/versusoverall1280jpg-e974ad_610w.jpg"/></div></div>';
+
+                $(".sec1").click(function() {
+                    $(".versus-title > p > b").text("The Controller");
+                    $(".versus-video").replaceWith(sec1Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec1").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote1").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+                
+                $(".sec2").click(function() {
+                    $(".versus-title > p > b").text("The Hardware");
+                    $(".versus-video").replaceWith(sec2Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec2").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote2").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+                
+                $(".sec3").click(function() {
+                    $(".versus-title > p > b").text("The Games");
+                    $(".versus-video").replaceWith(sec3Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec3").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote3").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+                
+                $(".sec4").click(function() {
+                    $(".versus-title > p > b").text("The Software");
+                    $(".versus-video").replaceWith(sec4Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec4").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote4").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+                
+                $(".sec5").click(function() {
+                    $(".versus-title > p > b").text("The Online");
+                    $(".versus-video").replaceWith(sec5Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec5").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote5").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+                
+                $(".sec6").click(function() {
+                    $(".versus-title > p > b").text("Overall");
+                    $(".versus-video").replaceWith(sec6Vid);
+                    $(".selsec").removeClass("selsec");
+                    $(".sec6").addClass("selsec");
+                    $(".versus-container").addClass("stage-waiting").removeClass("stage-voting stage-countdown stage-thankyou");
+                    $(".unhide").removeClass("unhide").addClass("hide");
+                    $(".vote6").removeClass("hide").addClass("unhide");
+                    $(".countdown-copy").text("Please watch each video before voting...");
+                    clearInterval(counter);
+                });
+            });
         </script>
     </head>
     <body>
-        <div class="page">
-            <div class="vs-container wait category1">
-                <div class="vs-header">
-                    <div class="header-title"></div>
-                    <div class="header-category"></div>
+        <div class="versus-container stage-waiting">
+            <div class="versus-title">
+                <p><span>PS4 vs. Xbox One: You Decide - IGN Versus</span><b>The Controller</b></p>
+            </div>
+            
+            <div class="versus-sections">
+                <div class="section sec1 selsec">Controller</div>
+                <div class="section sec2">Hardware</div>
+                <div class="section sec3">Games</div>
+                <div class="section sec4">Software</div>
+                <div class="section sec5">Online</div>
+                <div class="section sec6">Overall</div>
+            </div>
+            
+            <div class="versus-video">
+                <div class="video-placeholder-wrapper sec1Vid">
+                    <img class="video-placeholder" src="http://assets1.ignimgs.com/2013/12/18/versuscontroller1280jpg-88609d_610w.jpg"/>
                 </div>
-                
-                <div class="vs-shortcuts">
+            </div>
+            
+            <div class="versus-instruction">
+                <p>Start the video above to begin voting.</p>
+
+                <div class="false-buttons">
+                    <div class="false-voting-button ps4">PlayStation 4</div>
+                    <div class="false-voting-button xbone">Xbox One</div>
                 </div>
-                
-                <div class="vs-video">
-                    <div class="video-thumb"></div>
+            </div>
+            
+            <div class="versus-countdown">
+                <p><span class="countdown-copy">Please watch each video before voting...</span> <span class="versus-timestamp"></span></p>
+
+                <div class="false-buttons">
+                    <div class="false-voting-button ps4">PlayStation 4</div>
+                    <div class="false-voting-button xbone">Xbox One</div>
                 </div>
-                
-                <div class="vs-voting">
-                    <div class="voting-countdown"></div>
-                    <div class="voting-message"></div>
-                    <div class="voting-buttons">
-                    </div>
+            </div>
+            
+            <div class="versus-thankyou">
+                <p>You must watch this video to verify your vote. Thanks for voting!</p>
+
+                <div class="false-buttons">
+                    <div class="false-voting-button ps4">PlayStation 4</div>
+                    <div class="false-voting-button xbone">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 1 -->
+
+            <div class="versus-voting vote1 unhide">
+                <p>Which has the better <b>controller</b>? Vote to advance to the next poll.</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote1-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote1-opt2">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 2 -->
+
+            <div class="versus-voting vote2 hide">
+                <p>Which <b>hardware</b> is better? Vote to advance to the next poll.</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote2-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote2-opt2">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 3 -->
+
+            <div class="versus-voting vote3 hide">
+                <p>Which <b>games library</b> is better? Vote to advance to the next poll.</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote3-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote3-opt2">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 4 -->
+
+            <div class="versus-voting vote4 hide">
+                <p>Which <b>software experience</b> is better? Vote to advance to the next poll.</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote4-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote4-opt2">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 5 -->
+
+            <div class="versus-voting vote5 hide">
+                <p>Which <b>online experience</b> is better? Vote to advance to the next poll.</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote5-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote5-opt2">Xbox One</div>
+                </div>
+            </div>
+
+<!-- Vote 6 -->
+
+            <div class="versus-voting vote6 hide">
+                <p><b>Overall</b>, which console is better?</p>
+
+                <div class="versus-buttons">
+                    <div class="versus-voting-button ps4 vote6-opt1">PlayStation 4</div>
+                    <div class="versus-voting-button xbone vote6-opt2">Xbox One</div>
                 </div>
             </div>
         </div>
