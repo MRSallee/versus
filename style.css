@@ -111,9 +111,10 @@ a, div {
     width: 33.33%;
 }
 
-.category1 .shortcut:nth-child(1):nth-last-child(3),
-.category2 .shortcut:nth-child(2):nth-last-child(2),
-.category3 .shortcut:nth-child(3):nth-last-child(1), .category4 .shortcut:nth-child(3):nth-last-child(1) {
+.category1 .shortcut:nth-child(1):nth-last-child(4),
+.category2 .shortcut:nth-child(2):nth-last-child(3),
+.category3 .shortcut:nth-child(3):nth-last-child(2),
+.category4 .shortcut:nth-child(4):nth-last-child(1) {
     color: #d3222a;
 }
 
