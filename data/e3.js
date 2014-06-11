@@ -3,7 +3,8 @@ var metadata = {
         title: 'Who Won E3? You Decide - IGN Versus',
         categoryCount: 4,
         optionsCount: 3,
-        countTimer : 3,
+        countTimer1 : 11,
+        countTimer2 : 6,
         option1: 'Sony',
         option2: 'Microsoft',
         option3: 'Nintendo'

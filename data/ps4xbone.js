@@ -3,7 +3,8 @@ var metadata = {
         title: 'Who Won E3? You Decide - IGN Versus',
         categoryCount: 7,
         optionsCount: 2,
-        countTimer : 60,
+        countTimer1 : 41,
+        countTimer2 : 21,
         option1: 'PlayStation',
         option2: 'Xbox One',
     },
@@ -57,7 +58,7 @@ var metadata = {
         category6 : {
             name: 'Overall',
             thumbnail: 'http://assets2.ignimgs.com/2013/12/19/versusoverall1280jpg-e974ad_320w.jpg',
-            question: 'Which is better <b>overall</b>',
+            question: 'Which is better <b>overall</b>?',
             videoUrlNeutral: 'http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-ign-versus',
             videoUrlVote1: 'http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-ps4-online-vote-ign-versus',
             videoUrlVote2: 'http://www.ign.com/videos/2012/12/17/xbox-one-vs-ps4-you-decide-overall-xbox-one-online-vote-ign-versus'

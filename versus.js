@@ -15,9 +15,10 @@ var categoryId = 'category1',
     voteId = 'vote0',
     lastCategoryNum = metadata.categoryCount,
     lastCategoryId = 'category' + lastCategoryNum,
-    count = metadata.countTimer,
+    secondLastCategoryId = 'category' + (lastCategoryNum - 1),
+    count = metadata.countTimer1,
     resetCount = function () {
-        count = metadata.countTimer;
+        count = metadata.countTimer1;
         $(".voting-countdown").text("");
         clearInterval(timer);
     };
@@ -37,10 +38,13 @@ var setCategory = function () {
 // Timer
 var timer = setInterval(counter, 1000);
 var startTimer = function () {
-    if ($("." + [lastCategoryId] + "").length <= 0) {
-        timer = setInterval(counter, 1000);
-    } else {
+    if ($("." + [lastCategoryId] + "").length > 0) {
         $(".voting-message").html(message.verifyThanks);
+    } else if ($("." + [secondLastCategoryId] + "").length > 0) {
+        timer = setInterval(counter, 1000);
+        count = metadata.countTimer2;
+    } else {
+        timer = setInterval(counter, 1000);
     }
 };
 var counter = function () {
