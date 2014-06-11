@@ -4,7 +4,7 @@ function getUrlParam() {
     var urlParam = window.location.search.substring(1),
         dataScript = document.createElement("script");
     dataScript.type = "text/javascript";
-    dataScript.src = "../data/" + urlParam + ".js";
+    dataScript.src = "./data/" + urlParam + ".js";
     $("head").append(dataScript);
 }
 getUrlParam();
