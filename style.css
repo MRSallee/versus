@@ -273,7 +273,8 @@ a, div {
 }
 
 .voting-buttons {
-    
+    font-size: 0;
+    line-height: 0;
 }
 
 .button {
@@ -293,6 +294,46 @@ a, div {
     
     -webkit-transition: all 0.5s ease;
 }
+
+/* 2 buttons */
+
+.button:nth-child(1):nth-last-child(2) {
+    display: inline-block;
+    width: 46.5%;
+    margin: 1rem 0.5% 1rem 3%;
+}
+
+.button:nth-child(2):nth-last-child(1) {
+    display: inline-block;
+    width: 46.5%;
+    margin: 1rem 3% 1rem 0.5%;
+}
+
+/* 3 buttons */
+
+.button:nth-child(1):nth-last-child(3) {
+    display: inline-block;
+    width: 30.5%;
+    margin: 1rem 0.5% 1rem 3%;
+    
+    font-size: 3.6rem;
+}
+
+.button:nth-child(2):nth-last-child(2) {
+    display: inline-block;
+    width: 31%;
+    margin: 1rem 0.5%;
+    font-size: 3.6rem;
+}
+
+.button:nth-child(3):nth-last-child(1) {
+    display: inline-block;
+    width: 30.5%;
+    margin: 1rem 3% 1rem 0.5%;
+    font-size: 3.6rem;
+}
+
+/* ... */
 
 .vote .voting-buttons:hover .button {
     background-color: #222;
