@@ -4,7 +4,7 @@ var metadata = {
         categoryCount: 4,
         optionsCount: 3,
         countTimer1 : 60,
-        countTimer2 : 20,
+        countTimer2 : 60,
         option1: 'Sony',
         option2: 'Microsoft',
         option3: 'Nintendo'
@@ -29,8 +29,9 @@ var metadata = {
             question: 'Who had the best <b>conference</b>?',
             thumbnail: 'http://assets2.ignimgs.com/2014/06/16/versusconf1920jpg-b68872_610w.jpg',
             videoUrlNeutral: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-ign-versus',
-            videoUrlVote1: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-microsoft-games-vote-ign-versus',
-            videoUrlVote2: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-sony-games-vote-ign-versus',
+            videoUrlVote1: 
+'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-sony-games-vote-ign-versus',
+            videoUrlVote2: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-microsoft-games-vote-ign-versus',
             videoUrlVote3: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-conferences-nintendo-games-vote-ign-versus'
         },
         category3 : {
@@ -38,14 +39,17 @@ var metadata = {
             question: 'Who won <b>E3 2014</b>?',
             thumbnail: 'http://assets2.ignimgs.com/2014/06/16/versusoverall1920jpg-6e4918_610w.jpg',
             videoUrlNeutral: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-ign-versus',
-            videoUrlVote1: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-microsoft-conference-vote-ign-versus',
-            videoUrlVote2: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-sony-conference-vote-ign-versus',
+            videoUrlVote1:             
+'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-sony-conference-vote-ign-versus',
+			videoUrlVote2: 			'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-microsoft-conference-vote-ign-versus',
             videoUrlVote3: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-overall-nintendo-conference-vote-ign-versus'
         },
         category4 : {
             name: 'Thanks',
-            videoUrlVote1: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-finale-microsoft-overall-vote-ign-versus',
-            videoUrlVote2: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-finale-sony-overall-vote-ign-versus',
+            videoUrlVote1: 
+'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-finale-sony-overall-vote-ign-versus',
+            videoUrlVote2: 
+'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-finale-microsoft-overall-vote-ign-versus',
             videoUrlVote3: 'http://www.ign.com/videos/2014/06/20/who-won-e3-2014-the-finale-nintendo-overall-vote-ign-versus'
         }
     };
